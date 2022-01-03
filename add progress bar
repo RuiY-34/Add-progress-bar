@@ -1,0 +1,17 @@
+from time import sleep
+from tqdm import tqdm
+
+symbols="000001"
+startdate="20211229"
+enddate="20211230"
+adjust='hfq'
+
+for i in tqdm(range(1, 500)):
+    for symbol in symbols:
+        stock={}
+        stock = ak.stock_zh_a_hist(symbol=symbol, start_date=startdate, end_date=enddate, adjust=adjust)
+        stock = stock.set_index('日期')
+  
+stock.head()
+      
+sleep(0.5)
